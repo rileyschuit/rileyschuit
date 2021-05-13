@@ -10,7 +10,7 @@
 
 - 📅 Best way to make an appointment - **[calendly.com/rileyschuit](https://calendly.com/rileyschuit)**
 
-- 📄 Want to know more about my professional experiences? Find more [here](https://resume.rileyschuit.com)
+- 📄 Want to know more about my professional experiences? Resume is located [here](https://resume.rileyschuit.com)
 
 <h3 align="left">Big fan of:</h3>
 <p align="left">
