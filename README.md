@@ -4,7 +4,7 @@
 
 - 🔭 I’m currently working on **Container Orchestration, automation techniques, and self service**.
 
-- 💬 Ask me about **Application global availability and resilience, automation, Containers, bash, linux, cloud technologies, architecture, etc...**
+- 💬 Ask me about **Application global availability and resilience, automation, containers, bash, linux, cloud technologies, architecture, etc...**
 
 - 📫 Best way to reach me - **riley.schuit@gmail.com**
 
@@ -18,7 +18,6 @@
   <a href="https://www.ansible.com/" target="_blank">  <img src="icons/ansible.png" alt="html5" width="40" height="40"/> </a>
   <a href="https://www.docker.com/" target="_blank"> <img src="icons/docker.png" alt="docker" width="60" height="40"/> </a>
   <a href="https://git-scm.com/" target="_blank"> <img src="icons/git.svg" alt="git" width="40" height="40"/> </a>
-  <a href="https://travis-ci.org/" target="_blank"> <img src="icons/travisci.png" alt="git" width="70" height="60"/></a>
   <a href="https://getbootstrap.com" target="_blank"> <img src="icons/bootstrap.svg" alt="bootstrap" width="30" height="40"/> </a>  
   <a href="https://reactjs.org/" target="_blank"> <img src="icons/reactjs.png" alt="html5" width="40" height="40"/> </a>
   <a href="https://www.vagrantup.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/vagrantup/vagrantup-icon.svg" alt="vagrant" width="35" height="35"/>
