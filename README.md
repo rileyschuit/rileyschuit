@@ -8,7 +8,7 @@
 
 - 📫 Best way to reach me - **riley.schuit@gmail.com**
 
-- 📅 Best way to make an appointment - **[My Google Calendar]( calendar.app.google/hnyNAyy32KKyD9PQ8)**
+- 📅 Best way to make an appointment - **[My Google Calendar](https://calendar.google.com/calendar/u/0?cid=cmlsZXkuc2NodWl0QGdtYWlsLmNvbQ)**
 
 - 📄 Want to know more about my professional experiences? Resume is located [here](https://resume.rileyschuit.com)
 
