@@ -1,5 +1,4 @@
 <h1 align="center">👋, Hello! I'm Riley Schuit</h1>
-<h3 align="center">A technology enthusiast</h3>
 <br>
 
 - 🔭 I’m currently working on **Container Orchestration, automation techniques, and self service**.
@@ -22,5 +21,4 @@
   <a href="https://reactjs.org/" target="_blank"> <img src="icons/reactjs.png" alt="html5" width="40" height="40"/> </a>
   <a href="https://www.vagrantup.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/vagrantup/vagrantup-icon.svg" alt="vagrant" width="35" height="35"/> 
   <a href="https://kubernetes.io/" target="_blank"> <img src="icons/kubernetes.png" alt="mariadb" width="40" height="40"/> </a>
-  <a href="https://www.nginx.com" target="_blank"> <img src="icons/nginx.png" alt="nginx" width="40" height="40"/> </a>
   <a href="https://grafana.com" target="_blank"> <img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" alt="grafana" width="40" height="40"/> </a> </p>
