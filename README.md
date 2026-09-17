@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="mailto:riley.schuit@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-riley.schuit%40gmail.com-EA4335?logo=gmail&logoColor=white"></a>
-  <a href="https://calendar.google.com/calendar/u/0?cid=cmlsZXkuc2NodWl0QGdtYWlsLmNvbQ"><img alt="Book time" src="https://img.shields.io/badge/Book_a_call-Google_Calendar-4285F4?logo=googlecalendar&logoColor=white"></a>
+  <a href="https://calendly.com/riley-schuit/30min"><img alt="Book time" src="https://img.shields.io/badge/Book_a_call-Calendly-006BFF?logo=calendly&logoColor=white"></a>
   <a href="https://resume.rileyschuit.com"><img alt="Resume" src="https://img.shields.io/badge/Resume-resume.rileyschuit.com-2ea44f"></a>
 </p>
 
@@ -114,7 +114,7 @@ I build **workflow automation for small businesses** — the repetitive, copy-pa
 - **Documentation as a product.** Every build ships with a runbook. You could hand it to someone else and they'd be fine. No lock-in.
 - **Near-zero delivery cost = better pricing for you.** I'm not reselling a SaaS markup; I own the infrastructure.
 
-**Got a manual process eating your team's hours?** → [riley.schuit@gmail.com](mailto:riley.schuit@gmail.com) · [Book 20 minutes](https://calendar.google.com/calendar/u/0?cid=cmlsZXkuc2NodWl0QGdtYWlsLmNvbQ)
+**Got a manual process eating your team's hours?** → [riley.schuit@gmail.com](mailto:riley.schuit@gmail.com) · [Book 30 minutes](https://calendly.com/riley-schuit/30min)
 
 ---
 
