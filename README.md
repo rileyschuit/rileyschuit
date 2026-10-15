@@ -42,7 +42,7 @@ The repos behind it are private because they describe my home network. I'm happy
 ## 🔨 Recent builds
 
 - **AWS IoT device platform.** Serverless (SAM, Lambda, IoT Core, DynamoDB, S3, CloudFront). A containerized cloud compiler builds Arduino/ESP32 firmware per device, and updates go out over the air through the device shadow. I also wrote a device-management library for it: captive-portal setup, remote settings, and a hold-the-button network reset.
-- **ESP32-S3 head tracker.** BNO085 sensor fusion to PPM trainer input on a FlySky NB4+, with double-tap recentering. It's managed and updated through the platform above. [Schematic and sketch](https://gist.github.com/rileyschuit/8e3f7a5ec94c87617974b9ce6fbb462b).
+- **ESP32-S3 head tracker.** BNO085 sensor fusion to PPM trainer input on a FlySky NB4+, with double-tap recentering, tested end to end on the radio. It's managed and updated through the platform above. [Schematic and sketch](https://gist.github.com/rileyschuit/8e3f7a5ec94c87617974b9ce6fbb462b).
 - **Live storage migration.** Moved about 10 stateful workloads (Prometheus, Grafana, Loki, Home Assistant, AdGuard DNS, a macOS VM) to a new NFS server. Each one got a new PersistentVolume instead of an edit to a bound one, after an in-place edit broke a full Flux apply. Along the way I wrote down the failure modes: export permissions, UID ownership, and `root_squash` for an init container that runs as root.
 - **Finding my own blind spot.** After rolling out default-deny NetworkPolicies, an audit showed kube-state-metrics and the NFS prober had been quietly crash-looping, so the alerts that depended on them couldn't fire. I fixed the policies, then restored the missing heartbeat job in AWX config-as-code so it can't vanish again.
 - **Early-warning monitoring.** One Grafana board with per-node disk-fill forecasts, read-only-root detection (an early sign of a failing NVMe), thermals, SMART disk health, and UniFi network health, all feeding Discord alerts tuned to cut noise.
@@ -106,7 +106,7 @@ The pattern is boring on purpose: **desired state lives in Git, Flux makes reali
 ### Observability
 - **Prometheus** (metrics) + **Grafana** (dashboards, incl. a single-pane "TLDR" board) + **Loki `3.0.0`** with **Promtail** log shipping on every node.
 - **node-exporter** on all 6 nodes, **kube-state-metrics**, **blackbox-exporter** for synthetic HTTP probes, **pushgateway** for batch jobs.
-- **Deploy-test canary** — a scheduled job deploys a throwaway workload to check the platform can still ship, not just that pods are green.
+- **Deploy-test canary** (being reworked) — a scheduled job deploys a throwaway workload to check the platform can still ship, not just that pods are green.
 - **`nfs-prober`** DaemonSet checks the NFS mounts on every node, so a stale handle or stalled server shows up as an alert instead of a stuck app.
 
 ### Security & secrets
