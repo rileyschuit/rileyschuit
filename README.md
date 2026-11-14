@@ -22,6 +22,9 @@
   <img alt="AWS" src="https://img.shields.io/badge/AWS_Serverless-232F3E?logo=amazonwebservices&logoColor=white">
   <img alt="Go" src="https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white">
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white">
+  <img alt="React" src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB">
+  <img alt="Raspberry Pi" src="https://img.shields.io/badge/Raspberry_Pi-A22846?logo=raspberrypi&logoColor=white">
   <img alt="ESP32" src="https://img.shields.io/badge/ESP32-E7352C?logo=espressif&logoColor=white">
   <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white">
   <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black">
@@ -41,6 +44,10 @@ The repos behind it are private because they describe my home network. I'm happy
 
 ## 🔨 Recent builds
 
+- **[RC Race HQ](https://www.rcracehq.com) — a SaaS I built and run.** A multi-club platform for RC racing: each club gets its own site and custom domain, branding, events and registration, news, and a track directory with zip-radius search. Racers pay the club directly through Stripe Connect or Square. Serverless AWS (SAM, Lambda, DynamoDB, Cognito, S3/CloudFront) with a React/TypeScript front end, separate GitHub OIDC deploy roles for dev and prod, and every AWS permission written down. 85 merged PRs since early October, shipped to production in tested release batches.
+- **Raspberry Pi lap counter.** The race-night half of RC Race HQ: an RTL-SDR transponder decoder, a containerized Flask app built in CI and provisioned with Ansible, an always-on event Wi-Fi with a captive portal and walk-up kiosk check-in, and an offline-first outbox that syncs results to the cloud over AWS IoT MQTT. I designed the RF burst-detector HAT for it in KiCad. Bench-tested; first live race is next.
+- **A small AI agent team.** An orchestrator plus specialized workers (Claude for code, Grok for marketing research) running in one Kubernetes pod. Work arrives as GitHub issues, a label is the start button, and every result is a PR that a human merges. Agents post to write-only Discord channels so I can watch without them reading each other, pause when a provider's usage limit hits and resume on their own, and keep their memory in a git-backed Obsidian vault where each one can only write its own folder. Each agent has its own scoped tokens and a repo allow-list.
+- **Remote-drive RC proof of concept.** Analog FPV video from a car, captured on a Pi and streamed to a browser over WebRTC (MediaMTX). Control through a FlySky RF module is next.
 - **AWS IoT device platform.** Serverless (SAM, Lambda, IoT Core, DynamoDB, S3, CloudFront). A containerized cloud compiler builds Arduino/ESP32 firmware per device, and updates go out over the air through the device shadow. I also wrote a device-management library for it: captive-portal setup, remote settings, and a hold-the-button network reset.
 - **ESP32-S3 head tracker.** BNO085 sensor fusion to PPM trainer input on a FlySky NB4+, with double-tap recentering, tested end to end on the radio. It's managed and updated through the platform above. [Schematic and sketch](https://gist.github.com/rileyschuit/8e3f7a5ec94c87617974b9ce6fbb462b).
 - **Live storage migration.** Moved about 10 stateful workloads (Prometheus, Grafana, Loki, Home Assistant, AdGuard DNS, a macOS VM) to a new NFS server. Each one got a new PersistentVolume instead of an edit to a bound one, after an in-place edit broke a full Flux apply. Along the way I wrote down the failure modes: export permissions, UID ownership, and `root_squash` for an init container that runs as root.
@@ -57,7 +64,7 @@ The repos behind it are private because they describe my home network. I'm happy
 | **Workloads** | 60+ Deployments across 30+ namespaces |
 | **Source of truth** | 100% GitOps — Flux CD `v2.8.3` reconciles every workload |
 | **Automation engine** | AWX `24.6.1` (Ansible) on `awx-operator`, Postgres 15, NFS-persistent |
-| **Observability** | Prometheus + Grafana + Loki/Promtail, node-exporter on every node |
+| **Observability** | Prometheus + Grafana + Loki (Grafana Alloy shipping), node-exporter on every node |
 | **Uptime** | Continuous operation since April 2026 |
 | **Storage** | NFS + Unraid array, per-PVC capacity monitored |
 | **Security** | cert-manager TLS, External Secrets, OAuth2 SSO, Trivy image scanning, Pod Security Standards |
@@ -104,7 +111,7 @@ The pattern is boring on purpose: **desired state lives in Git, Flux makes reali
 - Client and product workloads deploy as **namespace-isolated** apps with their own secrets, dashboards, and network policy.
 
 ### Observability
-- **Prometheus** (metrics) + **Grafana** (dashboards, incl. a single-pane "TLDR" board) + **Loki `3.0.0`** with **Promtail** log shipping on every node.
+- **Prometheus** (metrics) + **Grafana** (dashboards, incl. a single-pane "TLDR" board) + **Loki `3.7`** with **Grafana Alloy** shipping pod logs, the systemd journal and Kubernetes events from every node, plus AWS CloudTrail activity forwarded in.
 - **node-exporter** on all 6 nodes, **kube-state-metrics**, **blackbox-exporter** for synthetic HTTP probes, **pushgateway** for batch jobs.
 - **Deploy-test canary** (being reworked) — a scheduled job deploys a throwaway workload to check the platform can still ship, not just that pods are green.
 - **`nfs-prober`** DaemonSet checks the NFS mounts on every node, so a stale handle or stalled server shows up as an alert instead of a stuck app.
@@ -124,7 +131,7 @@ The pattern is boring on purpose: **desired state lives in Git, Flux makes reali
 
 ## 💡 Hosting and products
 
-Under **Sturgeon Technologies** I also host and operate automation for small businesses on this platform, and I'm building a few small products on top of it (the IoT platform above is one). Same rules as everything else: version-controlled, monitored, backed up, and handed over with a runbook so nobody is locked in.
+Under **Sturgeon Technologies** I also host and operate automation for small businesses on this platform, and I build products on top of it: [RC Race HQ](https://www.rcracehq.com) and its lap counter, and the IoT platform above. Same rules as everything else: version-controlled, monitored, backed up, and handed over with a runbook so nobody is locked in.
 
 **Hiring, or have a manual process eating your team's hours?** → [riley.schuit@gmail.com](mailto:riley.schuit@gmail.com) · [Book 30 minutes](https://calendly.com/riley-schuit/30min)
 
